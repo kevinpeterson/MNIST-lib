@@ -42,7 +42,7 @@ object MNIST {
   val testingImages = readImages("mnist/t10k-images-idx3-ubyte")
 
   private def readImages(file: String): Array[Image] = {
-    val byteArray = readBinaryFile("mnist/train-images-idx3-ubyte")
+    val byteArray = readBinaryFile(file)
 
     byteArray.slice(16, byteArray.size).grouped(784).foldLeft(Array[Image]())((array, d) => {
       val digit: Array[Array[Int]] = Array.ofDim(28, 28)
